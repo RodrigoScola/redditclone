@@ -1,10 +1,18 @@
-import { USER } from "./data/user";
-
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import { Homepage } from "./Components/pages/Homepage";
+import { ProfilePage } from "./Components/pages/ProfilePage";
 const App = () => {
   return (
-    <div>
-      <button onClick={USER.authorize}> click me</button>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Homepage />
+        </Route>
+        <Route path="/profile-page">
+          <ProfilePage />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 
