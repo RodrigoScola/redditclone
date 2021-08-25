@@ -1,12 +1,17 @@
 import React from "react";
-
-export const HeaderComponent = ({ author, subreddit }) => {
+import "../post.css";
+export const HeaderComponent = ({ author, subreddit, awards }) => {
   return (
-    <div>
+    <div className="header">
       <p>{subreddit}</p>
-      <p>posted by {author} hours ago</p>
-      <p>some flares here</p>
-      <p>spoilers</p>
+      <div className="flairs">
+        <p>posted by {author} hours ago</p>
+        {/* render awards */}
+        {awards.map((value) => {
+          return <img className="headerimg" src={value.icon_url} />;
+        })}
+        <p>spoilers</p>
+      </div>
     </div>
   );
 };

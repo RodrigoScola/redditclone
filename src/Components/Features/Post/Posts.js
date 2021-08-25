@@ -5,7 +5,7 @@ export const Posts = ({ data }) => {
 
   if (prod) {
     return (
-      <div>
+      <div className="postsDiv">
         {console.log(
           data.map((value) => {
             return value;
@@ -22,6 +22,7 @@ export const Posts = ({ data }) => {
               subreddit={value.subReddit}
               originalPost={value.originalLink}
               imgSource={value.source}
+              awards={value.awards}
             />
           );
         })}

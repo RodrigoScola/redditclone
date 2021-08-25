@@ -1,0 +1,26 @@
+input {
+  border-radius: 10px;
+}
+.redditLogo {
+  height: 20px;
+  width: auto;
+  padding-left: 5%;
+}
+.navbar {
+  position: sticky;
+  top: 0px;
+
+  background-color: white;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px 20px 0px;
+  border-bottom: 1px solid black;
+}
+.navbar form {
+  display: flex;
+  padding-right: 40px;
+}
+.navbar svg {
+  padding-top: 2px;
+}

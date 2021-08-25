@@ -4,17 +4,9 @@ import { ScoreComponent } from "./Components/ScoreComponent";
 import { HeaderComponent } from "./Components/HeaderComponent";
 import { ShareComponent } from "./Components/shareComponent";
 import "./post.css";
-{
-  /* <button
-  title="button to see full post"
-  onClick={() => {
-    window.open(`https://reddit.com${originalPost}`, "_blank");
-  }}
->
-  click to see the full post
-</button> */
-}
+
 export const Post = ({
+  awards,
   originalPost,
   imgSource,
   title,
@@ -25,21 +17,17 @@ export const Post = ({
 }) => {
   return (
     <div className="post">
-      <div>
-        <ScoreComponent score={score} />
-      </div>
-      <div className="headerComponent">
-        <HeaderComponent author={author} subreddit={subreddit} />
-      </div>
-      <div>
-        <ContentComponent title={title} imgSource={imgSource} />
-      </div>
-
-      <div>
-        <ShareComponent totalComments={totalComments} />
-        <br />
-        <br />
-      </div>
+      <ScoreComponent score={score} />
+      <HeaderComponent
+        awards={awards}
+        className="header"
+        author={author}
+        subreddit={subreddit}
+      />
+      <ContentComponent title={title} imgSource={imgSource} />
+      <ShareComponent totalComments={totalComments} />
+      <br />
+      <br />
     </div>
   );
 };

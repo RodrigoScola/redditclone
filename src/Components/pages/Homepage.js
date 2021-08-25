@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Posts } from "../../Components/Features/Post/Posts";
+import { Navbar } from "../Features/Navbar/navbar";
+import { Post } from "../Features/Post/post";
 export const Homepage = () => {
   const [data, setData] = useState();
+  const [title, setTitle] = useState("");
   const fetchLink = "https://www.reddit.com/search.json?q=cake.json";
 
   const fetchData = async () => {
@@ -48,6 +51,7 @@ export const Homepage = () => {
 
   return (
     <div>
+      <Navbar getSearchResults={fetchData} title={title} setTitle={setTitle} />
       <main>{data && <Posts data={data} />}</main>
     </div>
   );

@@ -1,8 +1,8 @@
 import React from "react";
-
+import "../post.css";
 export const ShareComponent = ({ totalComments }) => {
   return (
-    <div>
+    <div className="footer">
       <ul>
         <li>
           {/* comments svg */}
