@@ -4,6 +4,7 @@ import { ScoreComponent } from "./Components/ScoreComponent";
 import { HeaderComponent } from "./Components/HeaderComponent";
 import { ShareComponent } from "./Components/shareComponent";
 import "./post.css";
+import { baseLink } from "../../../REDDIT";
 
 export const Post = ({
   awards,
@@ -14,6 +15,8 @@ export const Post = ({
   subreddit,
   author,
   totalComments,
+  media,
+  isVideo,
 }) => {
   return (
     <div className="post">
@@ -24,8 +27,16 @@ export const Post = ({
         author={author}
         subreddit={subreddit}
       />
-      <ContentComponent title={title} imgSource={imgSource} />
-      <ShareComponent totalComments={totalComments} />
+      <ContentComponent
+        isVideo={isVideo}
+        media={media}
+        title={title}
+        imgSource={imgSource}
+      />
+      <ShareComponent
+        originalPost={originalPost}
+        totalComments={totalComments}
+      />
       <br />
       <br />
     </div>

@@ -23,6 +23,8 @@ export const Posts = ({ data }) => {
               originalPost={value.originalLink}
               imgSource={value.source}
               awards={value.awards}
+              media={value.media}
+              isVideo={value.isVideo}
             />
           );
         })}

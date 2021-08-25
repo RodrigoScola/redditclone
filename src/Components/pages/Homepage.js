@@ -4,11 +4,12 @@ import { Navbar } from "../Features/Navbar/navbar";
 import { Post } from "../Features/Post/post";
 export const Homepage = () => {
   const [data, setData] = useState();
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState("default");
   const fetchLink = "https://www.reddit.com/search.json?q=cake.json";
-
+  let searchTerm;
   const fetchData = async () => {
-    fetch("https://www.reddit.com/search.json?q=image", {
+    searchTerm = title.replace(" ", "%20");
+    fetch(`https://www.reddit.com/search.json?q=${searchTerm}`, {
       method: "GET",
       mode: "cors",
     })
@@ -31,7 +32,6 @@ export const Homepage = () => {
                 color: value.data.author.author_flair_text_color,
               },
               id: value.data.id,
-              isVideo: value.data.is_video,
               media: value.data.media,
               numComments: value.data.num_comments,
               originalLink: value.data.permalink,
@@ -42,16 +42,21 @@ export const Homepage = () => {
             };
           })
         );
-        console.log(jsonResponse.data.children);
+        // console.log(jsonResponse.data.children);
       });
+  };
+  const submitData = (e) => {
+    e.preventDefault();
+    fetchData();
   };
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [searchTerm]);
 
   return (
     <div>
-      <Navbar getSearchResults={fetchData} title={title} setTitle={setTitle} />
+      <h1>{searchTerm}</h1>
+      <Navbar getSearchResults={submitData} title={title} setTitle={setTitle} />
       <main>{data && <Posts data={data} />}</main>
     </div>
   );
