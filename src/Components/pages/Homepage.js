@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Posts } from "../../Components/Features/Post/Posts";
+import { baseLink } from "../../REDDIT";
 import { Navbar } from "../Features/Navbar/navbar";
-import { Post } from "../Features/Post/post";
 export const Homepage = () => {
   const [data, setData] = useState();
-  const [title, setTitle] = useState("default");
-  const fetchLink = "https://www.reddit.com/search.json?q=cake.json";
+  const [title, setTitle] = useState("");
   let searchTerm;
-  const fetchData = async () => {
+  const fetchData = async (link) => {
     searchTerm = title.replace(" ", "%20");
-    fetch(`https://www.reddit.com/search.json?q=${searchTerm}`, {
+    fetch(link, {
       method: "GET",
       mode: "cors",
     })
@@ -42,15 +41,15 @@ export const Homepage = () => {
             };
           })
         );
-        // console.log(jsonResponse.data.children);
+        console.log(jsonResponse.data.children);
       });
   };
   const submitData = (e) => {
     e.preventDefault();
-    fetchData();
+    fetchData(`https://www.reddit.com/search.json?q=${searchTerm}`);
   };
   useEffect(() => {
-    fetchData();
+    fetchData(`${baseLink}.json`);
   }, [searchTerm]);
 
   return (

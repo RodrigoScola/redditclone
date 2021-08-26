@@ -18,10 +18,12 @@ export const HeaderComponent = ({ author, subreddit, awards }) => {
           </a>{" "}
           hours ago
         </p>
-        {/* render awards */}
-        {awards.map((value) => {
-          return <img className="headerimg" src={value.icon_url} />;
-        })}
+        <div className="flairsDiv">
+          {/* render awards */}
+          {awards.map((value) => {
+            return <img className="headerimg" src={value.icon_url} />;
+          })}
+        </div>
       </div>
     </div>
   );

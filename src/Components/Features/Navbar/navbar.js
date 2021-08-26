@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
 import "./navbar.css";
-import redditLogo from "../../../images/logo.png";
+import simpleLogo from "../../../images/simpleLogo.png";
 
 export const Navbar = ({ getSearchResults, title, setTitle }) => {
   const inputRef = useRef();
   return (
     <nav className="navbar">
-      <img className="redditLogo" src={redditLogo} />
+      <img className="redditLogo" src={simpleLogo} />
       {/* house svg */}
       <svg
         onClick={() => {

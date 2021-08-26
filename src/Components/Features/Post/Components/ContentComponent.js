@@ -1,12 +1,17 @@
 import React from "react";
-import { baseLink } from "../../../../REDDIT";
 import "../post.css";
 export const ContentComponent = ({ title, imgSource, media, isVideo }) => {
   if (!isVideo) {
     return (
       <div className="content">
         <h3>{title}</h3>
-        <img src={imgSource} alt="" />
+        <img
+          onClick={() => {
+            window.open(imgSource, "_blank");
+          }}
+          src={imgSource}
+          alt=""
+        />
       </div>
     );
   } else {

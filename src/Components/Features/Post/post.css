@@ -45,6 +45,13 @@ img {
 }
 .header p {
   padding-right: 5px;
+  line-height: 1.5;
+}
+.flairsDiv {
+  padding-left: 10px;
+  max-width: 250px;
+  display: flex;
+  flex-wrap: wrap;
 }
 .headerimg {
   width: auto;
@@ -71,5 +78,7 @@ svg {
 }
 .flairs {
   color: gray;
+  width: 100%;
+  line-height: 1.5;
   display: flex;
 }
